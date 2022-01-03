@@ -2,6 +2,10 @@
   <img src="https://raw.githubusercontent.com/isomorphic-git/isomorphic-git/main/website/static/img/isomorphic-git-logo.svg?sanitize=true" alt="" height="150"/>
 </p>
 
+# @jazcash/isomorphic-git
+
+- onData callback that passes through byte length of incoming data from stream so you can do more accurate progress updates
+
 # isomorphic-git
 
 `isomorphic-git` is a pure JavaScript reimplementation of git that works in both Node.js and browser JavaScript environments. It can read and write to git repositories, fetch from and push to git remotes (such as GitHub), all without any native C++ module dependencies.

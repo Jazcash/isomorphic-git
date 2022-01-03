@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/isomorphic-git/isomorphic-git.git"
+    "url": "git+https://github.com/jazcash/isomorphic-git.git"
   },
   "keywords": [
     "git",
@@ -35,7 +35,7 @@
   "author": "William Hilton <wmhilton@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/isomorphic-git/isomorphic-git/issues"
+    "url": "https://github.com/jazcash/isomorphic-git/issues"
   },
   "homepage": "https://isomorphic-git.org/",
   "files": [
@@ -151,5 +151,8 @@
     "type": "opencollective",
     "url": "https://opencollective.com/isomorphic-git",
     "logo": "https://opencollective.com/isomorphic-git/logo.txt"
+  },
+  "directories": {
+    "doc": "docs"
   }
 }

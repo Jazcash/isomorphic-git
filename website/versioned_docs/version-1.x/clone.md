@@ -11,6 +11,7 @@ Clone a repository
 | -------------------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | [**fs**](./fs)                   | FsClient                      | a file system implementation                                                                                                                    |
 | [**http**](./http)               | HttpClient                    | an HTTP client                                                                                                                                  |
+| [onData](./onData)               | DataCallback                  | optional progress event callback                                                                                                                |
 | [onProgress](./onProgress)       | ProgressCallback              | optional progress event callback                                                                                                                |
 | [onMessage](./onMessage)         | MessageCallback               | optional message event callback                                                                                                                 |
 | [onAuth](./onAuth)               | AuthCallback                  | optional auth fill callback                                                                                                                     |
