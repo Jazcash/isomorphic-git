@@ -169,6 +169,7 @@ export class GitRemoteHTTP {
    */
   static async connect({
     http,
+    onData,
     onProgress,
     corsProxy,
     service,
@@ -189,6 +190,7 @@ export class GitRemoteHTTP {
     updateHeaders(headers, auth)
 
     const res = await http.request({
+      onData,
       onProgress,
       method: 'POST',
       url: `${url}/${service}`,

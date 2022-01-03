@@ -6,6 +6,12 @@
  */
 
 /**
+ * @callback DataCallback
+ * @param {any} chunk
+ * @returns {void | Promise<void>}
+ */
+
+/**
  * @callback ProgressCallback
  * @param {GitProgressEvent} progress
  * @returns {void | Promise<void>}
@@ -17,6 +23,7 @@
  * @property {string} [method='GET'] - The HTTP method to use
  * @property {Object<string, string>} [headers={}] - Headers to include in the HTTP request
  * @property {AsyncIterableIterator<Uint8Array>} [body] - An async iterator of Uint8Arrays that make up the body of POST requests
+ * @property {DataCallback} [onData] - For http streams, this is called with each chunk of data received
  * @property {ProgressCallback} [onProgress] - Reserved for future use (emitting `GitProgressEvent`s)
  * @property {object} [signal] - Reserved for future use (canceling a request)
  */

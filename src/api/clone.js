@@ -12,6 +12,7 @@ import { join } from '../utils/join.js'
  * @param {object} args
  * @param {FsClient} args.fs - a file system implementation
  * @param {HttpClient} args.http - an HTTP client
+ * @param {DataCallback} [args.onData] - optional progress event callback
  * @param {ProgressCallback} [args.onProgress] - optional progress event callback
  * @param {MessageCallback} [args.onMessage] - optional message event callback
  * @param {AuthCallback} [args.onAuth] - optional auth fill callback
@@ -51,6 +52,7 @@ import { join } from '../utils/join.js'
 export async function clone({
   fs,
   http,
+  onData,
   onProgress,
   onMessage,
   onAuth,
@@ -85,6 +87,7 @@ export async function clone({
       fs: new FileSystem(fs),
       cache,
       http,
+      onData,
       onProgress,
       onMessage,
       onAuth,

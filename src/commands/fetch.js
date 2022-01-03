@@ -39,6 +39,7 @@ import { writeUploadPackRequest } from '../wire/writeUploadPackRequest.js'
  * @param {import('../models/FileSystem.js').FileSystem} args.fs
  * @param {any} args.cache
  * @param {HttpClient} args.http
+ * @param {DataCallback} [args.onData]
  * @param {ProgressCallback} [args.onProgress]
  * @param {MessageCallback} [args.onMessage]
  * @param {AuthCallback} [args.onAuth]
@@ -67,6 +68,7 @@ export async function _fetch({
   fs,
   cache,
   http,
+  onData,
   onProgress,
   onMessage,
   onAuth,
@@ -216,6 +218,7 @@ export async function _fetch({
   const packbuffer = Buffer.from(await collect(packstream))
   const raw = await GitRemoteHTTP.connect({
     http,
+    onData,
     onProgress,
     corsProxy,
     service: 'git-upload-pack',
@@ -342,6 +345,7 @@ export async function _fetch({
       }
     })
   }
+
   const packfile = Buffer.from(await collect(response.packfile))
   const packfileSha = packfile.slice(-20).toString('hex')
   const res = {

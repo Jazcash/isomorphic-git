@@ -12,6 +12,7 @@ import { fromNodeStream } from '../../utils/fromNodeStream.js'
  * @returns {Promise<GitHttpResponse>}
  */
 export async function request({
+  onData,
   onProgress,
   url,
   method = 'GET',
@@ -35,6 +36,13 @@ export async function request({
       (err, res) => {
         if (err) return reject(err)
         const iter = fromNodeStream(res)
+
+        if (onData) {
+          res.on("data", (chunk) => {
+            onData(Buffer.byteLength(chunk))
+          });
+        }
+
         resolve({
           url: res.url,
           method: res.method,
