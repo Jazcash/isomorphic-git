@@ -4,6 +4,8 @@
 
 # @jazcash/isomorphic-git
 
+`nvm use 12.1.0`
+
 - onData callback that passes through byte length of incoming data from stream so you can do more accurate progress updates
 
 # isomorphic-git
