@@ -288,13 +288,13 @@ export class GitPackIndex {
       0b1100000: 'ofs_delta',
       0b1110000: 'ref_delta',
     }
-    if (!this.pack) {
+    const packIndex = await this.pack;
+    if (packIndex) {
       throw new InternalError(
         'Tried to read from a GitPackIndex with no packfile loaded into memory'
       )
     }
-    const stuff = await this.pack;
-    const raw = stuff.slice(start)
+    const raw = packIndex.slice(start)
     const reader = new BufferCursor(raw)
     const byte = reader.readUInt8()
     // Object type is encoded in bits 654
