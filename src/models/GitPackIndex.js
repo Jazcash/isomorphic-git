@@ -289,7 +289,7 @@ export class GitPackIndex {
       0b1110000: 'ref_delta',
     }
     const packIndex = await this.pack;
-    if (packIndex) {
+    if (!packIndex) {
       throw new InternalError(
         'Tried to read from a GitPackIndex with no packfile loaded into memory'
       )
