@@ -1,6 +1,6 @@
 {
   "name": "@jazcash/isomorphic-git",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "A pure JavaScript reimplementation of git for node and browsers",
   "type": "module",
   "typings": "./index.d.ts",
