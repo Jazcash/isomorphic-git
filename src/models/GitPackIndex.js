@@ -7,6 +7,7 @@ import { applyDelta } from '../utils/applyDelta.js'
 import { listpack } from '../utils/git-list-pack.js'
 import { inflate } from '../utils/inflate.js'
 import { shasum } from '../utils/shasum.js'
+import * as fs from "fs";
 
 function decodeVarInt(reader) {
   const bytes = []
@@ -288,12 +289,16 @@ export class GitPackIndex {
       0b1100000: 'ofs_delta',
       0b1110000: 'ref_delta',
     }
-    let packIndex = await this.pack;
-
-    if (packIndex === null) {
-      packIndex = this.packed;
+    let packIndex = null;
+    try {
+      packIndex = await this.pack;
+      if (packIndex === null) {
+        packIndex = await fs.promises.readFile(this.packfilePath);
+      }
+    } catch (err) {
+      console.log(err);
+      throw new InternalError(`Could not read packfile ${this.packfilePath}`)
     }
-
     if (!packIndex) {
       throw new InternalError(
         'Tried to read from a GitPackIndex with no packfile loaded into memory'
