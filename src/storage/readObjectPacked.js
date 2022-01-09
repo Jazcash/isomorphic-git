@@ -29,6 +29,7 @@ export async function readObjectPacked({
       if (!p.pack) {
         const packFile = indexFile.replace(/idx$/, 'pack')
         p.pack = fs.read(packFile)
+        p.packed = await fs.read(packFile);
       }
       const result = await p.read({ oid, getExternalRefDelta })
       result.format = 'content'
