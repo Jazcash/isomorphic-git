@@ -87,7 +87,7 @@ export class FileSystem {
       }
       return buffer
     } catch (err) {
-      return null
+      throw err
     }
   }
 
