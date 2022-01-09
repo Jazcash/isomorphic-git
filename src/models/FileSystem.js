@@ -87,7 +87,10 @@ export class FileSystem {
       }
       return buffer
     } catch (err) {
-      throw err
+      if (err) {
+        console.error(err);
+        return null;
+      }
     }
   }
 
